@@ -62,7 +62,7 @@ describe Student do
 
   describe '.new_from_db' do
     it 'creates an instance with corresponding attribute values' do
-      row = [1, "Pat", 12]
+      row = [1, "Pat", "12"]
       pat = Student.new_from_db(row)
 
       expect(pat.id).to eq(row[0])
@@ -110,7 +110,7 @@ describe Student do
 
         all_but_12th = Student.students_below_12th_grade
         expect(all_but_12th.size).to eq(1)
-        expect(all_but_12th.first.name).to eq('Sam')
+        expect(all_but_12th.first[1]).to eq('Sam')
       end
     end
 
